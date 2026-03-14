@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WANG MEILI — Photography Portfolio</title>
+<meta name="description" content="摄影师王美丽 — 专注拍摄你的生命力。港风｜日系｜杂志风格人像摄影。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@200;300;400;500&family=Noto+Serif+SC:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   GUCCI-INSPIRED LUXURY MAGAZINE STYLESHEET
+   ============================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #F5F1EB;
+  --color-bg-dark: #0A0A0A;
+  --color-text: #1A1A1A;
+  --color-text-light: #6B6B6B;
+  --color-text-muted: #999;
+  --color-accent: #8B6914;
+  --color-accent-light: #C4A55A;
+  --color-border: #D4CFC6;
+  --color-border-light: #E8E4DD;
+  --color-white: #FFFFFF;
+  --color-cream: #FAF8F5;
+
+  --font-display: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  --font-body: 'Inter', 'Noto Serif SC', sans-serif;
+  --font-serif-cn: 'Noto Serif SC', serif;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  --spacing-2xl: 10rem;
+
+  --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-medium: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: 0.3s ease;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ============================================
+   LOADING SCREEN
+   ============================================ */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-dark);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--color-cream);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  animation: loaderPulse 2s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background var(--transition-medium), padding var(--transition-medium);
+}
+
+.nav.scrolled {
+  background: rgba(245, 241, 235, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 1rem 3rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+
+.nav-hero .nav-logo {
+  color: var(--color-white);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-hero .nav-links a {
+  color: rgba(255,255,255,0.7);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width var(--transition-medium);
+}
+
+.nav-links a:hover {
+  color: var(--color-text);
+}
+
+.nav-hero .nav-links a:hover {
+  color: var(--color-white);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-bg-dark);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.45;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+  filter: grayscale(20%) contrast(1.1);
+}
+
+.hero:hover .hero-bg {
+  transform: scale(1.0);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10,10,10,0.4) 0%,
+    rgba(10,10,10,0.2) 40%,
+    rgba(10,10,10,0.6) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--color-white);
+  padding: 0 2rem;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 1s ease 0.5s forwards;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeUp 1s ease 0.7s forwards;
+}
+
+.hero-subtitle {
+  font-family: var(--font-serif-cn);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 1s ease 0.9s forwards;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--color-accent-light);
+  margin: 0 auto 2rem;
+  opacity: 0;
+  animation: heroFadeUp 1s ease 1.1s forwards;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: heroFadeUp 1s ease 1.3s forwards;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  animation: scrollPulse 2s ease infinite;
+}
+
+@keyframes heroFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* ============================================
+   SECTION SHARED
+   ============================================ */
+.section {
+  padding: var(--spacing-xl) 3rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+.section-line {
+  width: 40px;
+  height: 1px;
+  background: var(--color-accent);
+  margin: 1.5rem auto 0;
+}
+
+/* ============================================
+   ABOUT / PROFILE SECTION
+   ============================================ */
+.about {
+  background: var(--color-cream);
+}
+
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.about-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border: 1px solid var(--color-accent-light);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  filter: grayscale(15%) contrast(1.05);
+  transition: filter var(--transition-slow), transform var(--transition-slow);
+}
+
+.about-image-wrapper:hover .about-image {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.02);
+}
+
+.about-text {
+  padding: var(--spacing-md) 0;
+}
+
+.about-label {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.about-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.about-name-cn {
+  font-family: var(--font-serif-cn);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  margin-bottom: 2rem;
+  letter-spacing: 0.15em;
+}
+
+.about-desc {
+  font-family: var(--font-serif-cn);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 2;
+  color: var(--color-text-light);
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.about-stats {
+  display: flex;
+  gap: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.stat-item {
+  text-align: left;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+
+.stat-label {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ============================================
+   EDITORIAL / FEATURED SECTION
+   ============================================ */
+.editorial {
+  background: var(--color-bg-dark);
+  color: var(--color-white);
+  padding: var(--spacing-xl) 0;
+}
+
+.editorial .section-header {
+  padding: 0 3rem;
+}
+
+.editorial .section-eyebrow {
+  color: var(--color-accent-light);
+}
+
+.editorial .section-title {
+  color: var(--color-white);
+}
+
+.editorial .section-line {
+  background: var(--color-accent-light);
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.editorial-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.editorial-item.large {
+  grid-column: span 2;
+  max-height: 80vh;
+}
+
+.editorial-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow), filter var(--transition-slow);
+  filter: grayscale(30%) contrast(1.1);
+}
+
+.editorial-item:hover .editorial-img {
+  transform: scale(1.04);
+  filter: grayscale(0%) contrast(1.05);
+}
+
+.editorial-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(0,0,0,0.7) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+}
+
+.editorial-item:hover .editorial-overlay {
+  opacity: 1;
+}
+
+.editorial-tag {
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: 0.75rem;
+}
+
+.editorial-title {
+  font-family: var(--font-serif-cn);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+
+.editorial-likes {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================
+   GALLERY / ALL WORKS
+   ============================================ */
+.gallery {
+  background: var(--color-bg);
+}
+
+.gallery-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  columns: 3;
+  column-gap: 1.5rem;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform var(--transition-slow), filter var(--transition-slow);
+  filter: grayscale(10%);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+  filter: grayscale(0%);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(0,0,0,0.65) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 1;
+}
+
+.gallery-item-title {
+  font-family: var(--font-serif-cn);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-white);
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
+.gallery-item-meta {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.4rem;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10,10,10,0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-medium), visibility var(--transition-medium);
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.5rem;
+  transition: color var(--transition-fast);
+  z-index: 10;
+  background: none;
+  border: none;
+}
+
+.lightbox-close:hover { color: white; }
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 85vh;
+  position: relative;
+  cursor: default;
+}
+
+.lightbox-content img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: -3rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--font-serif-cn);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   CONTACT / FOOTER
+   ============================================ */
+.footer {
+  background: var(--color-bg-dark);
+  color: var(--color-white);
+  padding: var(--spacing-xl) 3rem var(--spacing-md);
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.footer-tagline {
+  font-family: var(--font-serif-cn);
+  font-size: 0.9rem;
+  font-weight: 200;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.15em;
+  margin-bottom: 3rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-link {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  transition: color var(--transition-fast);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.footer-link:hover {
+  color: var(--color-accent-light);
+  border-bottom-color: var(--color-accent-light);
+}
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 0 auto 2rem;
+}
+
+.footer-copy {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.15em;
+}
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .editorial-grid {
+    grid-template-columns: 1fr;
+  }
+  .editorial-item.large {
+    grid-column: span 1;
+  }
+  .gallery-grid {
+    columns: 2;
+  }
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-lg) 1.5rem;
+  }
+  .nav {
+    padding: 1rem 1.5rem;
+  }
+  .nav.scrolled {
+    padding: 0.75rem 1.5rem;
+  }
+  .nav-links {
+    display: none;
+  }
+  .gallery-grid {
+    columns: 2;
+    column-gap: 0.75rem;
+  }
+  .gallery-item {
+    margin-bottom: 0.75rem;
+  }
+  .about-stats {
+    gap: 2rem;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .editorial-overlay {
+    opacity: 1;
+    background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.7) 100%);
+  }
+  .gallery-item-overlay {
+    opacity: 1;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.55) 100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    columns: 1;
+  }
+  .hero-title {
+    letter-spacing: 0.08em;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loader" id="loader">
+  <div class="loader-text">Wang Meili</div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav nav-hero" id="nav">
+  <a href="#" class="nav-logo">Wang Meili</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#editorial">Editorial</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="https://www.xiaohongshu.com/user/profile/5b5e973ce8ac2b5e3ab181c4" target="_blank" rel="noopener">Xiaohongshu</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Photography Portfolio</p>
+    <h1 class="hero-title">Wang Meili</h1>
+    <p class="hero-subtitle">专注拍摄你的生命力</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about section" id="about">
+  <div class="about-inner">
+    <div class="about-image-wrapper reveal">
+      <img class="about-image" id="aboutImg" alt="摄影师王美丽" loading="lazy">
+    </div>
+    <div class="about-text">
+      <p class="about-label reveal">The Photographer</p>
+      <h2 class="about-name reveal reveal-delay-1">Wang Meili</h2>
+      <p class="about-name-cn reveal reveal-delay-1" id="aboutNameCn"></p>
+      <p class="about-desc reveal reveal-delay-2" id="aboutBio"></p>
+      <div class="about-stats reveal reveal-delay-3" id="aboutStats"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Editorial Section -->
+<section class="editorial section" id="editorial">
+  <div class="section-header">
+    <p class="section-eyebrow reveal">Selected Works</p>
+    <h2 class="section-title reveal reveal-delay-1">Editorial</h2>
+    <div class="section-line reveal reveal-delay-2"></div>
+  </div>
+  <div class="editorial-grid" id="editorialGrid"></div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery section" id="gallery">
+  <div class="section-header">
+    <p class="section-eyebrow reveal">Complete Collection</p>
+    <h2 class="section-title reveal reveal-delay-1">Gallery</h2>
+    <div class="section-line reveal reveal-delay-2"></div>
+  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo reveal">Wang Meili</div>
+  <p class="footer-tagline reveal reveal-delay-1">港风 &middot; 日系 &middot; 杂志</p>
+  <div class="footer-links reveal reveal-delay-2">
+    <a href="https://www.xiaohongshu.com/user/profile/5b5e973ce8ac2b5e3ab181c4" target="_blank" rel="noopener" class="footer-link">Xiaohongshu</a>
+    <a href="#about" class="footer-link">About</a>
+    <a href="#editorial" class="footer-link">Editorial</a>
+    <a href="#gallery" class="footer-link">Gallery</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">&copy; 2026 Wang Meili Photography. All Rights Reserved.</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <div class="lightbox-content">
+    <img id="lightboxImg" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // ============================================
+  // DATA
+  // ============================================
+  const DATA = {"profile": {"name": "摄影师王美丽🌊", "bio": "📷专注拍摄你的生命力\n\n港风|日系|杂志", "avatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo312heb955n6004a7m1pbjp0e4r0g3vcg?imageView2/2/w/360/format/webp", "avatarLarge": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo312heb955n6004a7m1pbjp0e4r0g3vcg?imageView2/2/w/540/format/webp", "redId": "424802105", "location": "广东"}, "stats": {"follows": "789", "fans": "193", "interaction": "1361"}, "posts": [{"id": "65167e9f000000001e02800f", "title": "广州约拍｜故事感、胶片感、电影感", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/0ea6cdbcdf78030ae1929c464552e898/1040g00830q75b7ia7c0g4a7m1pbjp0e4opi05u0!nc_n_webp_mw_1", "coverWidth": 1440, "coverHeight": 1920, "likes": "17", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/65167e9f000000001e02800f"}, {"id": "67e69b2b000000001a0070f7", "title": "拍出电影感了！封神了！！", "description": "周末就是，舒服的卧在沙发里\n欣赏自己拍的照片😊", "date": "2025.03.28", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/8d73e75cd04591d1f9d674129ae422a2/1040g2sg31fislshc7qe04a7m1pbjp0e4tk39s70!nc_n_webp_mw_1", "coverWidth": 1079, "coverHeight": 1620, "likes": "21", "comments": "", "images": [{"url": "http://sns-webpic-qc.xhscdn.com/202603141337/84b4bd9bc2f497524f7862215842e11d/1040g2sg31fislshc7qe04a7m1pbjp0e4tk39s70!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/f4b7d18374f720ebb8e580571ca8d443/1040g2sg31fislshc7qe04a7m1pbjp0e4tk39s70!nd_prv_wlteh_webp_3", "width": 1079, "height": 1620}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/0bc38f2584ef9b3136e5ca8adccd832b/1040g2sg31fislshc7qeg4a7m1pbjp0e4evbem78!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/5fb469bc96c71808eb0a1d1c489e867e/1040g2sg31fislshc7qeg4a7m1pbjp0e4evbem78!nd_prv_wlteh_webp_3", "width": 1080, "height": 1918}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/2e2d22f5c56c63c448861d1e0dc96c7f/1040g2sg31fislshc7qf04a7m1pbjp0e4sksi0g0!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/019dda9ecae92cd605966224885fa39b/1040g2sg31fislshc7qf04a7m1pbjp0e4sksi0g0!nd_prv_wlteh_webp_3", "width": 1079, "height": 1620}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/4723e5ee8edac7fcb33d8b6305b18e11/1040g2sg31fislshc7qfg4a7m1pbjp0e41hlr398!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/c1cc54c9e2658cd5e9c2bf4e5fcb2e59/1040g2sg31fislshc7qfg4a7m1pbjp0e41hlr398!nd_prv_wlteh_webp_3", "width": 1079, "height": 1620}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/42ee3b60469b2fbbbbb25daeed3d928e/1040g2sg31fislshc7qg04a7m1pbjp0e4ds9l91g!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/1f5b2bcbef8ff1de6df8b88167535f98/1040g2sg31fislshc7qg04a7m1pbjp0e4ds9l91g!nd_prv_wlteh_webp_3", "width": 1620, "height": 2160}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/6debda434322d34862bf519e35fa43ac/1040g2sg31fislshc7qgg4a7m1pbjp0e4rabope0!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/919ddebdd019748470382286cd7a0baa/1040g2sg31fislshc7qgg4a7m1pbjp0e4rabope0!nd_prv_wlteh_webp_3", "width": 1079, "height": 1620}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/be0c8e15ac2054635d2935ac2052780c/1040g2sg31fislshc7qh04a7m1pbjp0e4qqhr0i8!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/6948b28a7befc29a35afab5bdfde6146/1040g2sg31fislshc7qh04a7m1pbjp0e4qqhr0i8!nd_prv_wlteh_webp_3", "width": 1080, "height": 1620}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/e002f5d1a318d860bd49191057c82134/1040g2sg31fislshc7qhg4a7m1pbjp0e4hqh64og!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/2a3b3e6b7eebb4fb83ae58fb1476d8fa/1040g2sg31fislshc7qhg4a7m1pbjp0e4hqh64og!nd_prv_wlteh_webp_3", "width": 1079, "height": 1620}], "xhsUrl": "https://www.xiaohongshu.com/explore/67e69b2b000000001a0070f7"}, {"id": "69b4d8d6000000002302144a", "title": "这个AI同事帮我干活！效率翻10倍", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/b1be912c0d6067db701727d95eaf0033/spectrum/1040g0k031tm9mmvlmo004a7m1pbjp0e4r34gle8!nc_n_webp_mw_1", "coverWidth": 800, "coverHeight": 800, "likes": "1", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/69b4d8d6000000002302144a"}, {"id": "69b4c9fe0000000023015dba", "title": "小时候喜欢玩换装游戏的有福了", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/fe82b29e10002bdb81d884b75f0ba034/1040g2sg31tm7oiorn2004a7m1pbjp0e4ha2ipj8!nc_n_webp_mw_1", "coverWidth": 1535, "coverHeight": 2732, "likes": "3", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/69b4c9fe0000000023015dba"}, {"id": "69b3d7cd000000001d019940", "title": "重生之AI硬生生把我爆改成非洲土著？！", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/c8c20eb6b7a02c56a6cad3fca2858733/spectrum/1040g0k031tlaaah9mo004a7m1pbjp0e407jd4ho!nc_n_webp_mw_1", "coverWidth": 1392, "coverHeight": 3010, "likes": "4", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/69b3d7cd000000001d019940"}, {"id": "69b2b5190000000009020134", "title": "谁懂啊！AI 生图也太牛了", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/5410894303f61f46fbc3cc5460b8134d/notes_pre_post/1040g3k831tk6p2sln8s04a7m1pbjp0e49p59ivg!nc_n_webp_mw_1", "coverWidth": 1535, "coverHeight": 2732, "likes": "2", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/69b2b5190000000009020134"}, {"id": "692d93b5000000001e02aab0", "title": "我镜头里的彭高🍸 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/53c1a8ff87a3897c1c1626bf4582ccbf/1040g00831pi6f0cek20g4a7m1pbjp0e4tqnc2q0!nc_n_webp_mw_1", "coverWidth": 2641, "coverHeight": 3798, "likes": "287", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/692d93b5000000001e02aab0"}, {"id": "690de5060000000004020138", "title": "我镜头里的「彭高」🍹", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/5223f46c536b4d8eb5a69966d709727b/1040g2sg31oj69o0mmgf04a7m1pbjp0e4a7h0g7g!nc_n_webp_mw_1", "coverWidth": 1440, "coverHeight": 1920, "likes": "24", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/690de5060000000004020138"}, {"id": "68ff712c0000000004014622", "title": "四张流：拍照 | 开灯 | 干杯 | 拜拜", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/ed6b921c10d0ae1bca53814621b281fd/1040g00831o54o07hlm004a7m1pbjp0e4tgq423g!nc_n_webp_mw_1", "coverWidth": 4032, "coverHeight": 3024, "likes": "0", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/68ff712c0000000004014622"}, {"id": "68ff041f0000000004013f4c", "title": "氛围感的尽头是高糊 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/63fcbb3316b3ac5cfb0f13c0c18e7f43/notes_pre_post/1040g3k031o4ndooe58004a7m1pbjp0e43hk0t9g!nc_n_webp_mw_1", "coverWidth": 1920, "coverHeight": 2560, "likes": "5", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/68ff041f0000000004013f4c"}, {"id": "68feffdd0000000004004345", "title": "氛围感的尽头是高糊 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/99bd0a21279830adc416978f14349cc8/notes_pre_post/1040g3k031o4masjl6g104a7m1pbjp0e47frebv8!nc_n_webp_mw_1", "coverWidth": 1920, "coverHeight": 2560, "likes": "0", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/68feffdd0000000004004345"}, {"id": "68fe1e180000000004006288", "title": "氛围感的尽头是高糊 ", "description": "像是坐上了一艘游轮🚢\n开向喜欢的地方\n尽兴的一次拍摄\n🌅 模特：滚滚\n💎摄影师：王摄\n🎬地点：广州·影像咖啡屋，以及外面的大马路\n📷设备：尼康 Z50 二代\n⏰时间：下午四点左右拍外景，天暗后拍内景\n🙋‍♀️拍摄思路： 和倪妮学拍照，自由、自然、情绪风、故事感\n\t\n欢迎大家交流拍照呀👏\n@摄影薯", "date": "2025.10.26", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/a216976072814676b2b5cf734dfb671f/notes_pre_post/1040g3k031o3qvkmu583g4a7m1pbjp0e4r9coe1g!nc_n_webp_mw_1", "coverWidth": 1696, "coverHeight": 2560, "likes": "9", "comments": "", "images": [{"url": "http://sns-webpic-qc.xhscdn.com/202603141337/44badfd7635680f1428038601b800f11/notes_pre_post/1040g3k031o3qvkmu583g4a7m1pbjp0e4r9coe1g!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/27eb5c3c98bf4564c8b1e30f62adb325/notes_pre_post/1040g3k031o3qvkmu583g4a7m1pbjp0e4r9coe1g!nd_prv_wlteh_webp_3", "width": 1696, "height": 2560}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/a94da40861afe76cc349f4d2594b9a92/notes_pre_post/1040g3k031o3qvkmu58004a7m1pbjp0e48ftm08g!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/88ee381a723a4f7170d6063e09ecc155/notes_pre_post/1040g3k031o3qvkmu58004a7m1pbjp0e48ftm08g!nd_prv_wlteh_webp_3", "width": 1920, "height": 2560}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/5be5fb4c2934424b043e4658db293895/notes_pre_post/1040g3k031o3qvkmu580g4a7m1pbjp0e4kip2cko!nd_dft_wgth_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/64266ff75ebd920d1138a317eb4956fd/notes_pre_post/1040g3k031o3qvkmu580g4a7m1pbjp0e4kip2cko!nd_prv_wgth_webp_3", "width": 3807, "height": 2965}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/5e84ef2d243c3da6aa7ae0786efe393e/notes_pre_post/1040g3k031o3qvkmu584g4a7m1pbjp0e4olp04so!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/7abec77e7a040b2b0bd5593e272d224b/notes_pre_post/1040g3k031o3qvkmu584g4a7m1pbjp0e4olp04so!nd_prv_wlteh_webp_3", "width": 1920, "height": 2560}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/a2404a746e4f8c60992ba376611c0cea/notes_pre_post/1040g3k031o3qvkmu58604a7m1pbjp0e42s4onu8!nd_dft_wgth_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/67a9b7411d64a3054ed92d5829d7b685/notes_pre_post/1040g3k031o3qvkmu58604a7m1pbjp0e42s4onu8!nd_prv_wgth_webp_3", "width": 2560, "height": 2420}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/5b605f1a7b3e59ec46c42ef1b75a9ae3/notes_pre_post/1040g3k031o3qvkmu58104a7m1pbjp0e4v39m070!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/56f7eadc8d2ad168edc3b70b422cbf85/notes_pre_post/1040g3k031o3qvkmu58104a7m1pbjp0e4v39m070!nd_prv_wlteh_webp_3", "width": 1920, "height": 2560}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/2b892783d3d0f276c6a89089bde9ad5c/notes_pre_post/1040g3k031o3qvkmu58504a7m1pbjp0e4pdjh0n0!nd_dft_wgth_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/70c1578c09c93beac099b4becc3c9bfc/notes_pre_post/1040g3k031o3qvkmu58504a7m1pbjp0e4pdjh0n0!nd_prv_wgth_webp_3", "width": 2560, "height": 2440}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/07df0a0c42dfce4394a4c64c0eda9122/notes_pre_post/1040g3k031o3qvkmu581g4a7m1pbjp0e4p9au8bo!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/279fc52ed6f07929be01559461d01fe5/notes_pre_post/1040g3k031o3qvkmu581g4a7m1pbjp0e4p9au8bo!nd_prv_wlteh_webp_3", "width": 3806, "height": 5712}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/4541d9d5cb7c6f485443ff1ec35e4053/notes_pre_post/1040g3k031o3r5la16m004a7m1pbjp0e4e9hjlao!nd_dft_wgth_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/84ccb7b0d88e9f2945a04767779d1bd1/notes_pre_post/1040g3k031o3r5la16m004a7m1pbjp0e4e9hjlao!nd_prv_wgth_webp_3", "width": 4284, "height": 2956}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/9cf1fa2253dcc9a52bb35b171e0efa34/notes_pre_post/1040g3k031o3qvkmu58204a7m1pbjp0e40uomnd8!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/91bb19986a1ba41390155eecb0af6e69/notes_pre_post/1040g3k031o3qvkmu58204a7m1pbjp0e40uomnd8!nd_prv_wlteh_webp_3", "width": 3712, "height": 5570}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/9c26514b4000f13c94f15590a20546b4/notes_pre_post/1040g3k031o3qvkmu58404a7m1pbjp0e4nb4tb8o!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/2fbab0c7cb8bdad48284f2e350941297/notes_pre_post/1040g3k031o3qvkmu58404a7m1pbjp0e4nb4tb8o!nd_prv_wlteh_webp_3", "width": 1920, "height": 2560}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/4ad74fe83f86be78b89cc5a940eeefaf/notes_pre_post/1040g3k031o3qvkmu582g4a7m1pbjp0e427l30qg!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/b07844db00f89c30369448691a8f71ed/notes_pre_post/1040g3k031o3qvkmu582g4a7m1pbjp0e427l30qg!nd_prv_wlteh_webp_3", "width": 1714, "height": 2560}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/edcc042ffb0ef9e4a87e87e6425ad344/notes_pre_post/1040g3k031o3qvkmu58304a7m1pbjp0e4r8d8d78!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/0a5f1754697e9a104fb0ea4598a0e402/notes_pre_post/1040g3k031o3qvkmu58304a7m1pbjp0e4r8d8d78!nd_prv_wlteh_webp_3", "width": 1920, "height": 2560}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/de81d365042c4a772b2324d9a375f543/notes_pre_post/1040g3k031o3r5la16m0g4a7m1pbjp0e4uuakfh0!nd_dft_wgth_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/1b3e2bb6b0efec8131c978c124fb5139/notes_pre_post/1040g3k031o3r5la16m0g4a7m1pbjp0e4uuakfh0!nd_prv_wgth_webp_3", "width": 4284, "height": 3354}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/dea56251e9b80d9a37ecc1cc470447b3/notes_pre_post/1040g3k031o3qvkmu585g4a7m1pbjp0e4l5s4l70!nd_dft_wgth_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/d7cf8944d6e8afea2e48bfb1651f0269/notes_pre_post/1040g3k031o3qvkmu585g4a7m1pbjp0e4l5s4l70!nd_prv_wgth_webp_3", "width": 3806, "height": 3433}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/aa8f236e4ede40706f6ecff5c2c7220f/notes_pre_post/1040g3k031o3r5la16m104a7m1pbjp0e4m2vhkn0!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/21a5e390148fd33aad02f02d39a3a7f1/notes_pre_post/1040g3k031o3r5la16m104a7m1pbjp0e4m2vhkn0!nd_prv_wlteh_webp_3", "width": 3712, "height": 5570}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/df38b2adf45650cc460ddfecb9576dd1/notes_pre_post/1040g3k031o3qvkmu586g4a7m1pbjp0e4gbptdk0!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/76dc092f37b8cc44060843bb4566bc14/notes_pre_post/1040g3k031o3qvkmu586g4a7m1pbjp0e4gbptdk0!nd_prv_wlteh_webp_3", "width": 1920, "height": 2560}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/fa74ca46a8f7293586838e7bacf44b74/notes_pre_post/1040g3k031o3r5la16m1g4a7m1pbjp0e4k3o7nng!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/3ba6f5fb2ea31d75d5f59febd842f006/notes_pre_post/1040g3k031o3r5la16m1g4a7m1pbjp0e4k3o7nng!nd_prv_wlteh_webp_3", "width": 3712, "height": 5570}], "xhsUrl": "https://www.xiaohongshu.com/explore/68fe1e180000000004006288"}, {"id": "68f9b57c000000000503064b", "title": "在云南拍到的神图 ", "description": "好喜欢\n云南的山⛰\n云南的风🎐\n云南给人的自由感与浪漫感\n\t\n️", "date": "2025.10.23", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/768a6f6092969b7e197aaaafe171da9f/notes_pre_post/1040g3k031nvhhkn4mg004a7m1pbjp0e4lbkf7uo!nc_n_webp_mw_1", "coverWidth": 2730, "coverHeight": 4096, "likes": "9", "comments": "", "images": [{"url": "http://sns-webpic-qc.xhscdn.com/202603141337/ada8c90fc1c1d80a10a772f0ce588a94/notes_pre_post/1040g3k031nvhhkn4mg004a7m1pbjp0e4lbkf7uo!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/e1577d5b519629d871151b9f8eac4bb4/notes_pre_post/1040g3k031nvhhkn4mg004a7m1pbjp0e4lbkf7uo!nd_prv_wlteh_webp_3", "width": 2730, "height": 4096}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/4a4eec314cbc4c0520d1dd01a6633e57/notes_pre_post/1040g3k031nvhhkn4mg1g4a7m1pbjp0e4qbfj91g!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/0ecf931177081c9296cd651754d3214f/notes_pre_post/1040g3k031nvhhkn4mg1g4a7m1pbjp0e4qbfj91g!nd_prv_wlteh_webp_3", "width": 3074, "height": 4096}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/235266af6c33cc980e00f2aa415004fd/notes_pre_post/1040g3k031nvhhkn4mg0g4a7m1pbjp0e4mce49cg!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/ac814a0bf6a2a2f7535c2ca8709deb04/notes_pre_post/1040g3k031nvhhkn4mg0g4a7m1pbjp0e4mce49cg!nd_prv_wlteh_webp_3", "width": 2730, "height": 4096}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/f430655c522e67201ff128aa62f4ca8f/notes_pre_post/1040g3k031nvhhkn4mg304a7m1pbjp0e4a0crkv8!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/9aa72ddab873de7e6429a4950109336a/notes_pre_post/1040g3k031nvhhkn4mg304a7m1pbjp0e4a0crkv8!nd_prv_wlteh_webp_3", "width": 1948, "height": 2560}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/f8c51a6520f410b6ce50f0a8b1cd8985/notes_pre_post/1040g3k031nvhhkn4mg204a7m1pbjp0e4ougk3a8!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/2d10520f5c7c38251ac73416e7ac8015/notes_pre_post/1040g3k031nvhhkn4mg204a7m1pbjp0e4ougk3a8!nd_prv_wlteh_webp_3", "width": 3074, "height": 4096}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/8ba99049c16508e9edba09850e506f16/notes_pre_post/1040g3k031nvhhkn4mg104a7m1pbjp0e415n2e30!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/9d4b03159cedf99a2124b28db629a842/notes_pre_post/1040g3k031nvhhkn4mg104a7m1pbjp0e415n2e30!nd_prv_wlteh_webp_3", "width": 2730, "height": 4096}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/7b3f7161b0ad7bf7e78edac3d91aacd4/notes_pre_post/1040g3k031nvhhkn4mg2g4a7m1pbjp0e47soc888!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/a4daeb58e111d99d27fa54a0fd51c1db/notes_pre_post/1040g3k031nvhhkn4mg2g4a7m1pbjp0e47soc888!nd_prv_wlteh_webp_3", "width": 3068, "height": 4096}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/7f02bb685d29e529236dcb1336500fb1/notes_pre_post/1040g3k031nvhhkn4mg3g4a7m1pbjp0e4mehg4lg!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/13e2a8aa2f369a2c8203225b61b0d636/notes_pre_post/1040g3k031nvhhkn4mg3g4a7m1pbjp0e4mehg4lg!nd_prv_wlteh_webp_3", "width": 2730, "height": 4096}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/f0e303c2a0476ceb51bb6057384dfd92/notes_pre_post/1040g3k031nvhhkn4mg404a7m1pbjp0e4ljjn7ug!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/8620f56d031d7f6ecf7f695cf4d3557a/notes_pre_post/1040g3k031nvhhkn4mg404a7m1pbjp0e4ljjn7ug!nd_prv_wlteh_webp_3", "width": 2730, "height": 4096}, {"url": "http://sns-webpic-qc.xhscdn.com/202603141337/d557d035962908df2512c4f24e451585/notes_pre_post/1040g3k031nvhhkn4mg4g4a7m1pbjp0e4b0183ro!nd_dft_wlteh_webp_3", "preview": "http://sns-webpic-qc.xhscdn.com/202603141337/6095a97b53bd2337ada7b035293ab7a1/notes_pre_post/1040g3k031nvhhkn4mg4g4a7m1pbjp0e4b0183ro!nd_prv_wlteh_webp_3", "width": 3068, "height": 4096}], "xhsUrl": "https://www.xiaohongshu.com/explore/68f9b57c000000000503064b"}, {"id": "68b84012000000001c007f9b", "title": "求问，腿疼医生推荐 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/380e72d82a5af46247337410b2ec1fab/1040g2sg31lvk07gdlee04a7m1pbjp0e4k7ppolo!nc_n_webp_mw_1", "coverWidth": 1200, "coverHeight": 1600, "likes": "3", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/68b84012000000001c007f9b"}, {"id": "68b3f736000000001c0050f6", "title": "沿路街拍·遇到的小姐姐", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/4bcf409ba29d46e3ff7061051bfddbea/1040g2sg31lre42bolmeg4a7m1pbjp0e4v7rvuj8!nc_n_webp_mw_1", "coverWidth": 1080, "coverHeight": 1440, "likes": "3", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/68b3f736000000001c0050f6"}, {"id": "685b93620000000020018e01", "title": "想拍点好看的 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/2fb368bd84683a7fb44df6c788c6c821/1040g00831j53t9psj4004a7m1pbjp0e4ifnqhpg!nc_n_webp_mw_1", "coverWidth": 1200, "coverHeight": 1600, "likes": "6", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/685b93620000000020018e01"}, {"id": "6846fa95000000002102cb6a", "title": "海风告诉我，世界很温柔", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/ed4e4dce28571e9428ea18e7415de4a8/notes_pre_post/1040g3k031ih09f4j0e004a7m1pbjp0e4oig4kdg!nc_n_webp_mw_1", "coverWidth": 2226, "coverHeight": 2560, "likes": "6", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/6846fa95000000002102cb6a"}, {"id": "6833cba8000000002100838d", "title": "真的好美 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/cffa3bf2cad4157852b509cba11667d8/1040g00831hu8qsvq3i004a7m1pbjp0e4p0h6nk8!nc_n_webp_mw_1", "coverWidth": 3024, "coverHeight": 4032, "likes": "2", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/6833cba8000000002100838d"}, {"id": "68331041000000002100adda", "title": "我们一起去东澳岛之三", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/c3f2ae6088762458fbbb35b1bb41d3e9/notes_pre_post/1040g3k831hthgv563ohg4a7m1pbjp0e4vb9mvs8!nc_n_webp_mw_1", "coverWidth": 3024, "coverHeight": 4032, "likes": "3", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/68331041000000002100adda"}, {"id": "68330ead00000000220273d2", "title": "我们一起去东澳岛之二", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/04a2faadae6abedec26ddeae9f274111/notes_pre_post/1040g3k831hthgv563og04a7m1pbjp0e4h3hugng!nc_n_webp_mw_1", "coverWidth": 3024, "coverHeight": 4032, "likes": "2", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/68330ead00000000220273d2"}, {"id": "68330ce2000000002001fbd9", "title": "我们一起去东澳岛：一", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/fc7c28ecc6579625603682c6a0ced7cc/notes_pre_post/1040g3k831hthgv563oe04a7m1pbjp0e4n1nj6jg!nc_n_webp_mw_1", "coverWidth": 3024, "coverHeight": 4032, "likes": "2", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/68330ce2000000002001fbd9"}, {"id": "6832e55a0000000021003d77", "title": "拍出电影感了！封神了！！", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/b53a9c4afb3c172a024b228ddb4ca9df/1040g00831htcnhl7ji004a7m1pbjp0e487ung4g!nc_n_webp_mw_1", "coverWidth": 3024, "coverHeight": 4032, "likes": "6", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/6832e55a0000000021003d77"}, {"id": "683114a8000000002102d820", "title": "仲夏夜之梦 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/dc5fc4feabcde9288ecc11c852a6e958/1040g2sg31hrk0ddm3u704a7m1pbjp0e4u0ecq8g!nc_n_webp_mw_1", "coverWidth": 1722, "coverHeight": 2560, "likes": "1", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/683114a8000000002102d820"}, {"id": "6829e8a30000000021007e0d", "title": "做自己女主角 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/7e46242459b261455a4ef92edb1d02d2/notes_pre_post/1040g3k831hkjqvjd3ue04a7m1pbjp0e404o9bp8!nc_n_webp_mw_1", "coverWidth": 1620, "coverHeight": 2160, "likes": "2", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/6829e8a30000000021007e0d"}, {"id": "680e51a800000000210053d7", "title": "落叶生肥土 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/a9934b7dccb8f6286c1ebf60c290160c/notes_pre_post/1040g3k831gplljt0jue04a7m1pbjp0e4tdnekng!nc_n_webp_mw_1", "coverWidth": 1918, "coverHeight": 2560, "likes": "3", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/680e51a800000000210053d7"}, {"id": "67ee9703000000001d00780f", "title": "你好，四月 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/cd1ee30c05c210a8cd07e104e57ba4b3/1040g00831fqm5ld702004a7m1pbjp0e4q37ckao!nc_n_webp_mw_1", "coverWidth": 1280, "coverHeight": 854, "likes": "5", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/67ee9703000000001d00780f"}, {"id": "67cda4550000000029010dd0", "title": "记录下来吧，每一天都很美好", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/cab05be92b2155fb3fe42368541092ee/1040g00831eqghipima004a7m1pbjp0e4g8ap3jo!nc_n_webp_mw_1", "coverWidth": 1434, "coverHeight": 2560, "likes": "9", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/67cda4550000000029010dd0"}, {"id": "67754753000000001300c97a", "title": "我爸说，感觉到了《西游记》里面", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/24cbe0a0fa45d1aaea477927dbc7a117/notes_pre_post/1040g3k831c47567jgu704a7m1pbjp0e4qiaqt5g!nc_n_webp_mw_1", "coverWidth": 1080, "coverHeight": 1914, "likes": "1", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/67754753000000001300c97a"}, {"id": "6774b49900000000130088d4", "title": "看跨年晚会，我变成我妈", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/9dec7bf5e3cdc596084308b3780bf338/1040g2sg31c3l99geh0004a7m1pbjp0e42b703ao!nc_n_webp_mw_1", "coverWidth": 3024, "coverHeight": 4032, "likes": "3", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/6774b49900000000130088d4"}, {"id": "676977c1000000000902caac", "title": "下班随手拍 ", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/2da558e7aeda07adffed81dcbd9b722e/1040g2sg31bolrkuj0sa04a7m1pbjp0e44g4ddn8!nc_n_webp_mw_1", "coverWidth": 1706, "coverHeight": 2560, "likes": "1", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/676977c1000000000902caac"}, {"id": "676975b90000000009017d07", "title": "粤海关博物馆&工程师妹纸", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/167f624a2a01c0853d9a53b0f7d15008/1040g2sg31bolrkuj0s704a7m1pbjp0e4gkbr24g!nc_n_webp_mw_1", "coverWidth": 1920, "coverHeight": 2560, "likes": "3", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/676975b90000000009017d07"}, {"id": "675edd1c000000000700edd2", "title": "💍 特别的女孩，每一刻都闪耀", "description": "", "date": "", "coverUrl": "http://sns-webpic-qc.xhscdn.com/202603141335/777c846e5289ab1b59c8a524e64f5028/1040g2sg31bean7ehg0704a7m1pbjp0e4pmvo4k8!nc_n_webp_mw_1", "coverWidth": 3024, "coverHeight": 4032, "likes": "0", "comments": "", "images": [], "xhsUrl": "https://www.xiaohongshu.com/explore/675edd1c000000000700edd2"}]};
+
+  // ============================================
+  // LOADER
+  // ============================================
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+    }, 1200);
+  });
+
+  // ============================================
+  // NAVIGATION SCROLL
+  // ============================================
+  const nav = document.getElementById('nav');
+  const hero = document.getElementById('hero');
+
+  const navObserver = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      nav.classList.add('nav-hero');
+      nav.classList.remove('scrolled');
+    } else {
+      nav.classList.remove('nav-hero');
+      nav.classList.add('scrolled');
+    }
+  }, { threshold: 0.1 });
+  navObserver.observe(hero);
+
+  // ============================================
+  // SCROLL REVEAL
+  // ============================================
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ============================================
+  // POPULATE DATA
+  // ============================================
+  const profile = DATA.profile;
+  const posts = DATA.posts;
+  const stats = DATA.stats;
+
+  // Hero background - use the most liked post's cover (exclude posts about others)
+  const sortedByLikes = [...posts]
+    .filter(p => !/彭高/.test(p.title))
+    .sort((a, b) => parseInt(b.likes || 0) - parseInt(a.likes || 0));
+  const heroBg = document.getElementById('heroBg');
+  if (sortedByLikes[0]) {
+    heroBg.style.backgroundImage = `url(${sortedByLikes[0].coverUrl})`;
+  }
+
+  // About section
+  document.getElementById('aboutImg').src = profile.avatarLarge || profile.avatar;
+  document.getElementById('aboutNameCn').textContent = profile.name;
+  
+  const bioLines = (profile.bio || '').split('\n').filter(l => l.trim());
+  document.getElementById('aboutBio').innerHTML = bioLines.map(l => l.trim()).join('<br>');
+
+  const statsContainer = document.getElementById('aboutStats');
+  const statsMap = {
+    'fans': 'Followers',
+    'follows': 'Following',
+    'interaction': 'Likes & Collects'
+  };
+  Object.entries(statsMap).forEach(([key, label]) => {
+    if (stats[key]) {
+      const div = document.createElement('div');
+      div.className = 'stat-item';
+      div.innerHTML = `
+        <div class="stat-number">${stats[key]}</div>
+        <div class="stat-label">${label}</div>
+      `;
+      statsContainer.appendChild(div);
+    }
+  });
+
+  // Editorial section - top 5 posts by likes
+  const editorialGrid = document.getElementById('editorialGrid');
+  const editorialPosts = sortedByLikes.slice(0, 5);
+  
+  editorialPosts.forEach((post, i) => {
+    const item = document.createElement('div');
+    item.className = `editorial-item${i === 0 ? ' large' : ''} reveal`;
+    item.innerHTML = `
+      <img class="editorial-img" src="${post.coverUrl}" alt="${post.title}" loading="lazy"
+           style="aspect-ratio: ${i === 0 ? '16/9' : post.coverWidth + '/' + post.coverHeight}; max-height: ${i === 0 ? '80vh' : '65vh'};">
+      <div class="editorial-overlay">
+        <span class="editorial-tag">Editorial</span>
+        <h3 class="editorial-title">${post.title}</h3>
+        <span class="editorial-likes">${post.likes} likes</span>
+      </div>
+    `;
+    item.addEventListener('click', () => openLightbox(post.coverUrl, post.title));
+    editorialGrid.appendChild(item);
+    revealObserver.observe(item);
+  });
+
+  // Gallery section - all posts
+  const galleryGrid = document.getElementById('galleryGrid');
+  
+  posts.forEach((post, i) => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item reveal';
+    item.innerHTML = `
+      <img src="${post.coverUrl}" alt="${post.title}" loading="lazy"
+           style="aspect-ratio: ${post.coverWidth}/${post.coverHeight};">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-title">${post.title}</div>
+        <div class="gallery-item-meta">${post.likes} likes${post.date ? ' &middot; ' + post.date : ''}</div>
+      </div>
+    `;
+    item.addEventListener('click', () => {
+      window.open(post.xhsUrl, '_blank');
+    });
+    galleryGrid.appendChild(item);
+    revealObserver.observe(item);
+  });
+
+  // ============================================
+  // LIGHTBOX
+  // ============================================
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+
+  function openLightbox(src, caption) {
+    lightboxImg.src = src;
+    lightboxCaption.textContent = caption || '';
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+</body>
+</html>
